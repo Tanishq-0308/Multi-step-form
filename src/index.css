@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+body{
+    background-color: #f0f5ff;
+    height: 100%;
+    width: 100%;
+    font-family: 'ubuntu-regular';
+}
+
+@font-face {
+    font-family: 'ubuntu-bold';
+    src: url('/assets/fonts/Ubuntu-Bold.ttf');
+}
+@font-face {
+    font-family: 'ubuntu-medium';
+    src: url('/assets/fonts/Ubuntu-Medium');
+}
+@font-face {
+    font-family: 'ubuntu-regular';
+    src: url('/assets/fonts/Ubuntu-Regular');
+}
+
+@theme {
+    --font-ubuntu-regular: 'ubuntu-regular';
+    --font-ubuntu-medium: 'ubuntu-medium';
+    --font-ubuntu-bold: 'ubuntu-bold';
+}
