@@ -13,11 +13,11 @@ body{
 }
 @font-face {
     font-family: 'ubuntu-medium';
-    src: url('/assets/fonts/Ubuntu-Medium');
+    src: url('/assets/fonts/Ubuntu-Medium.ttf');
 }
 @font-face {
     font-family: 'ubuntu-regular';
-    src: url('/assets/fonts/Ubuntu-Regular');
+    src: url('/assets/fonts/Ubuntu-Regular.ttf');
 }
 
 @theme {

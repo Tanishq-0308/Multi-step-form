@@ -9,7 +9,7 @@ const App = () => {
         <div className='w-full md:w-[32%] md:h-140 '>
         <Nav/>
         </div>
-        <div className='md:w-[68%] w-full p-8'>
+        <div className='md:w-[68%] w-full p-8 flex flex-col items-center'>
         <Outlet/>
         </div>
       </div>
