@@ -3,29 +3,6 @@ import AddOn from '../addOn/AddOn';
 import usePlanContext from '../../context/PlanContext';
 
 const Page3 = () => {
-  const { planDuration } = usePlanContext();
-
-  const addOns = [
-    {
-      checked: false,
-      name: 'Online service',
-      type: 'Access to multiplayer games',
-      price: 10
-    },
-    {
-      checked: false,
-      name: 'Large storage',
-      type: 'Extra 1TB of cloud save',
-      price: 20
-    },
-    {
-      checked: false,
-      name: 'Customizable profile',
-      type: 'Custom theme on your profile',
-      price: 20
-    }
-  ];
-
 
   return (
     <div className='flex flex-col h-full justify-between items-end'>

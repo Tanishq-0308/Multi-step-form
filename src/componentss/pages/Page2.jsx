@@ -9,16 +9,19 @@ const Page2 = () => {
 
   const monthlyData = [
     {
+      selected:false,
       icon: '/assets/images/icon-arcade.svg',
       mode: 'Arcade',
       pricing: 9
     },
     {
+      selected:false,
       icon: '/assets/images/icon-advanced.svg',
       mode: 'Advanced',
       pricing: 12
     },
     {
+      selected:false,
       icon: '/assets/images/icon-pro.svg',
       mode: 'Pro',
       pricing: 15
@@ -27,16 +30,19 @@ const Page2 = () => {
 
   const yearlyData = [
     {
+      selected:false,
       icon: '/assets/images/icon-arcade.svg',
       mode: 'Arcade',
       pricing: 90
     },
     {
+      selected:false,
       icon: '/assets/images/icon-advanced.svg',
       mode: 'Advanced',
       pricing: 120
     },
     {
+      selected:false,
       icon: '/assets/images/icon-pro.svg',
       mode: 'Pro',
       pricing: 150
@@ -59,16 +65,7 @@ const Page2 = () => {
 
         <div className='mt-8 flex flex-col gap-6'>
           <div className='grid grid-cols-3 gap-5'>
-            {
-              planDuration === 'monthly' ?
-                monthlyData.map((data) => (
-                  <Card icon={data.icon} mode={data.mode} price={data.pricing} free={null} duration='mo'/>
-                ))
-                :
-                yearlyData.map((data) => (
-                  <Card icon={data.icon} mode={data.mode} price={data.pricing} free='2 months free' duration='yr'/>
-                ))
-            }
+            <Card/>
           </div>
           <div className='rounded-lg flex items-center justify-center gap-4 bg-[#e5f3fd98]'>
             <p className={`${planDuration === 'monthly' ? 'text-[#02479b] font-ubuntu-medium' : 'text-gray-400'}`}>Monthly</p>
