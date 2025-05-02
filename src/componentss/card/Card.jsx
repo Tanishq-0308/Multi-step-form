@@ -3,18 +3,20 @@ import { monthlyData, yearlyData } from "../../Data";
 import usePlanContext from "../../context/PlanContext";
 
 const Card = ({ icon, mode, price, free, duration, checked }) => {
-  const { planDuration } = usePlanContext();
+  const { planDuration, setAllData, allData } = usePlanContext();
   const [monthly, setMonthly] = useState(monthlyData);
   const [yearly, setYearly] = useState(yearlyData);
 
-  const handleSelected=(name)=>{
+  const handleSelected=(name, price)=>{
     console.log('clicked');
+    setAllData({name:name, price:price});
     setMonthly((prev)=> prev.map((list)=>({...list, selected:false})));
     setMonthly((prev)=> prev.map((list)=> list.mode === name ? {...list, selected:true}: list))
   }
   
-  const handleYearlySelected=(name)=>{
+  const handleYearlySelected=(name, price)=>{
     console.log('clicked');
+    setAllData({name:name, price:price});
     setYearly((prev)=> prev.map((list)=>({...list, selected: false})));
     setYearly((prev)=> prev.map((list)=> list.mode === name ? {...list, selected:true}: list));
   }
@@ -23,8 +25,8 @@ const Card = ({ icon, mode, price, free, duration, checked }) => {
       {planDuration === "monthly"
         ? monthly.map((data) => (
           <div
-          onClick={()=>handleSelected(data.mode)}
-          className={`border hover:border-[#02479b] rounded-xl pt-5 pb-2 flex flex-col gap-10 items-start ${
+          onClick={()=>handleSelected(data.mode, data.pricing)}
+          className={`border hover:border-[#02479b] rounded-xl pt-5 sm:pb-2 flex sm:flex-col sm:gap-10 items-start ${
             data.selected ? "border-[#02479b] border-2" : "border border-gray-300"
           }`}
         >
@@ -44,7 +46,7 @@ const Card = ({ icon, mode, price, free, duration, checked }) => {
           ))
         : yearly.map((data) => (
           <div
-          onClick={()=>handleYearlySelected(data.mode)}
+          onClick={()=>handleYearlySelected(data.mode, data.pricing)}
           className={`border hover:border-[#02479b] rounded-xl pt-5 pb-2 flex flex-col gap-10 items-start ${
             data.selected ? "border-[#02479b] border-2" : "border border-gray-300"
           }`}

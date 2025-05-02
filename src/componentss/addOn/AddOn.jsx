@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import usePlanContext from '../../context/PlanContext';
 import { addOnsMonthly, addOnsYearly } from '../../Data';
 
 const AddOn = () => {
-    const { planDuration } = usePlanContext();
+    const { planDuration, setAllAddOns } = usePlanContext();
     const [addOnMonthly, setAddOnMonthly] = useState(addOnsMonthly);
     const [addOnYearly, setAddOnYearly] = useState(addOnsYearly);
 
-    const toggleButtonMonthly = (name) => {
+    const toggleButtonMonthly = (name, price) => {
         setAddOnMonthly((prev) =>
             prev.map((list) =>
                 list.name === name ? { ...list, checked: !list.checked } : list
@@ -15,23 +15,30 @@ const AddOn = () => {
         );
     }
 
-    const toggleButtonYearly = (name) => {
+    const toggleButtonYearly = (name, price) => {
         setAddOnYearly((prev) => prev.map((list) => list.name === name ? { ...list, checked: !list.checked } : list));
     }
 
+    const checker=()=>{
+        setAllAddOns(addOnMonthly.filter((list)=> list.checked=== true ? list : ''));
+    }
+
+    useEffect(()=>{
+        checker();
+    },[addOnMonthly])
     return (
         <>
             {
                 planDuration === 'monthly' ?
                     addOnMonthly.map((adds) => (
-                        <div className={`flex border rounded-lg border-gray-300 justify-between gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
+                        <div key={adds.name} className={`flex border rounded-lg border-gray-300 justify-between gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
                             <div className='flex gap-6'>
                                 <input
                                     type="checkbox"
                                     name="checkbox"
                                     id="checkbox"
                                     checked={adds.checked}
-                                    onChange={() => toggleButtonMonthly(adds.name)}
+                                    onChange={() => toggleButtonMonthly(adds.name, adds.price)}
                                     className='w-5 accent-[#473dff]'
                                 />
                                 <div>
@@ -44,14 +51,14 @@ const AddOn = () => {
                     ))
                     :
                     addOnYearly.map((adds) => (
-                        <div className={`flex border rounded-lg border-gray-300 justify-between gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
+                        <div key={adds.name} className={`flex border rounded-lg border-gray-300 justify-between gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
                             <div className='flex gap-6'>
                                 <input
                                     type="checkbox"
                                     name="checkbox"
                                     id="checkbox"
                                     checked={adds.checked}
-                                    onChange={() => toggleButtonYearly(adds.name)}
+                                    onChange={() => toggleButtonYearly(adds.name, adds.price)}
                                     className='w-5 accent-[#473dff]'
                                 />
                                 <div>

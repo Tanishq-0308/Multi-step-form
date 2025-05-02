@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
 
 const Page1 = () => {
   const [formData, setFormData]= useState({
@@ -6,6 +7,7 @@ const Page1 = () => {
     email:"",
     number:""
   });
+  const navigate=useNavigate();
 
   const [errors, setErrors]= useState({});
 
@@ -31,6 +33,7 @@ const Page1 = () => {
     }
 
     alert("Form submitted:\n" + JSON.stringify(formData, null, 2));
+    navigate('/step-2');
   }
   return (
     <div className='flex flex-col h-full justify-between items-end'>

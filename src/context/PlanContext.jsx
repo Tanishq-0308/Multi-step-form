@@ -1,26 +1,23 @@
 import { createContext, useContext, useState } from "react";
 
-export const PlanContext= createContext();
+export const PlanContext = createContext();
 
-export const PlanContextProvider=({children})=>{
+export const PlanContextProvider = ({ children }) => {
     const [planDuration, setPlanDuration] = useState('monthly');
-    const [allData, setAllData]= useState({
-        plan:{
-            mode:"",
-            price:"",
-            duration:""
-        },
-        addOns:{
-            
+    const [allData, setAllData] = useState(
+        {
+            mode: "NA",
+            price: "NA"
         }
-    });
-    return(
-        <PlanContext.Provider value={{planDuration, setPlanDuration}}>
+    );
+    const [allAddOns, setAllAddOns] = useState([]);
+    return (
+        <PlanContext.Provider value={{ planDuration, setPlanDuration, allData, setAllData, allAddOns, setAllAddOns }}>
             {children}
         </PlanContext.Provider>
     )
 }
 
-export default function usePlanContext(){
+export default function usePlanContext() {
     return useContext(PlanContext);
 }
