@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import usePlanContext from '../../context/PlanContext'
-import { useNavigation } from 'react-router';
+import { useNavigate } from 'react-router';
 
 const Page4 = () => {
   const { allData, allAddOns, planDuration } = usePlanContext();
   let value;
   const [total, setTotal]= useState('');
-  const navigate= useNavigation();
+  const navigate= useNavigate();
 
   useEffect(() => {
     console.log(allAddOns);
@@ -56,8 +56,9 @@ const Page4 = () => {
             </div>
           </div>
           <div className='flex justify-between items-center mt-15'>
-            <p className='text-gray-400 hover:cursor-pointer'>Go Back</p>
+            <p className='text-gray-400 hover:cursor-pointer' onClick={()=> navigate('/step-3')}>Go Back</p>
             <input
+              onClick={()=>navigate('/submitted')}
               type="submit"
               value="Confirm"
               className='border hover:cursor-pointer flex items-end justify-end bg-[#8c87f0] text-white px-3 py-2 rounded-md text-[0.9rem]'

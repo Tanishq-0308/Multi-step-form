@@ -22,9 +22,9 @@ const Nav = () => {
     }
   })
   return (
-    <div className="h-full w-full relative">
+    <div className="h-full w-full relative max-sm:flex justify-center ">
       <img src={image} alt="" className="h-full absolute w-full object-cover sm:rounded-2xl" />
-      <nav className="absolute p-8 text-white flex sm:flex-col gap-5">
+      <nav className="absolute p-8 text-white flex mt-4 sm:mt-0 sm:flex-col gap-5">
         <li className=" list-none flex items-center gap-4">
         <NavLink to='/' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 `}>
           <p className="">1</p>
@@ -35,7 +35,7 @@ const Nav = () => {
           </div>
         </li>
         <li className=" list-none flex items-center gap-4">
-        <NavLink to='/step-2' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 `}>
+        <NavLink to='/step-2' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 pointer-events-none`}>
           <p className="">2</p>
         </NavLink>
           <div className="md:block hidden">
@@ -44,7 +44,7 @@ const Nav = () => {
           </div>
         </li>
         <li className=" list-none flex items-center gap-4">
-        <NavLink to='/step-3' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 `}>
+        <NavLink to='/step-3' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 pointer-events-none`}>
           <p className="">3</p>
         </NavLink>
           <div className="md:block hidden">
@@ -53,7 +53,7 @@ const Nav = () => {
           </div>
         </li>
         <li className=" list-none flex items-center gap-4">
-        <NavLink to='/step-4' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 `}>
+        <NavLink to='/step-4' className={({isActive})=>` ${isActive ? 'bg-[#adbeff] text-black border-transparent' : ''} border rounded-full px-3 py-1 pointer-events-none`}>
           <p className="">4</p>
         </NavLink>
           <div className="md:block hidden">

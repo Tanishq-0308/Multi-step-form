@@ -51,7 +51,7 @@ const Page1 = () => {
               name="name"
               id="name"
               className='border border-gray-400 rounded-lg w-full py-2 px-4 text-xl focus:text-[#02479b] font-ubuntu-medium text-gray-600  focus:outline-none focus:ring-1 focus:border-none focus:ring-[#02479b]'
-              placeholder='hello'
+              placeholder='e.g. Stephen King'
             />
           </div>
           <div>
@@ -63,6 +63,7 @@ const Page1 = () => {
             name="email" 
             id="email" 
             className='border border-gray-400 rounded-lg w-full py-2 px-4 text-xl text-[#02479b] font-ubuntu-medium  focus:outline-none focus:ring-1 focus:border-none focus:ring-[#02479b]' 
+            placeholder='e.g. stephanking@lorem.com'
             />
           </div>
           <div>
@@ -70,10 +71,11 @@ const Page1 = () => {
             <input 
             value={formData.number} 
             onChange={handleChange} 
-            type="number" 
+            type="text" 
             name="number" 
             id="number" 
             className='border border-gray-400 rounded-lg w-full py-2 px-4 text-xl text-[#02479b] font-ubuntu-medium  focus:outline-none focus:ring-1 focus:border-none focus:ring-[#02479b]' 
+            placeholder='e.g. +1 234 567 890'
             />
           </div>
           <div className='flex justify-end mt-10'>

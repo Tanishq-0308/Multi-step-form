@@ -23,15 +23,22 @@ const AddOn = () => {
         setAllAddOns(addOnMonthly.filter((list)=> list.checked=== true ? list : ''));
     }
 
+    const checkerY=()=>{
+        setAllAddOns(addOnYearly.filter((list)=> list.checked=== true ? list : ''));
+    }
     useEffect(()=>{
         checker();
     },[addOnMonthly])
+
+    useEffect(()=>{
+        checkerY();
+    },[addOnYearly])
     return (
         <>
             {
                 planDuration === 'monthly' ?
                     addOnMonthly.map((adds) => (
-                        <div key={adds.name} className={`flex border rounded-lg border-gray-300 justify-between gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
+                        <div key={adds.name} className={`flex border rounded-lg border-gray-300 justify-between sm:gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
                             <div className='flex gap-6'>
                                 <input
                                     type="checkbox"
@@ -51,7 +58,7 @@ const AddOn = () => {
                     ))
                     :
                     addOnYearly.map((adds) => (
-                        <div key={adds.name} className={`flex border rounded-lg border-gray-300 justify-between gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
+                        <div key={adds.name} className={`flex border rounded-lg border-gray-300 justify-between sm:gap-22 px-6 py-3 items-center ${adds.checked ? 'ring ring-[#473dff] bg-gray-100' : ''}`}>
                             <div className='flex gap-6'>
                                 <input
                                     type="checkbox"
